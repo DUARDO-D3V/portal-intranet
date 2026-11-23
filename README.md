@@ -4,7 +4,7 @@ Um portal para operação, monitoramento e compartilhamento interno de conhecime
 
 Ele foi pensado para equipes de NOC, suporte e operações: login, dashboard, contatos, recados, feed, base de conhecimento, notas pessoais, escalas e integração com Zabbix.
 
-> Projeto genérico: dados reais, credenciais, contatos e infraestrutura interna foram removidos. Cada instalação precisa usar seu próprio banco e configurações.
+> Projeto: dados reais, credenciais, contatos e infraestrutura interna foram removidos. Cada instalação precisa usar seu próprio banco e configurações.
 
 ## O que tem aqui
 
