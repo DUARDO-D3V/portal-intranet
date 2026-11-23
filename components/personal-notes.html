@@ -1,0 +1,63 @@
+<div id="personal-notes-widget" class="personal-notes-widget">
+  <button type="button" id="personal-notes-fab" class="personal-notes-fab" aria-label="Abrir bloco de notas" aria-controls="personal-notes-drawer" aria-expanded="false" title="Meu bloco de notas">
+    <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
+  </button>
+  <div id="personal-notes-tip" class="personal-notes-tip" role="status" hidden>
+    <span>Novidade: seu bloco de notas pessoal fica sempre à mão por este botão.</span>
+    <button type="button" id="personal-notes-tip-dismiss" aria-label="Dispensar aviso">×</button>
+  </div>
+  <div id="personal-notes-backdrop" class="personal-notes-backdrop" hidden></div>
+  <aside id="personal-notes-drawer" class="personal-notes-drawer note-color-yellow" aria-label="Meu bloco de notas pessoal" aria-hidden="true" hidden>
+    <header class="personal-notes-header">
+      <strong>Meu Bloco de Notas Pessoal</strong>
+      <div class="personal-notes-window-actions">
+        <button type="button" id="personal-notes-pin" aria-label="Fixar bloco de notas aberto" aria-pressed="false" title="Fixar aberto após atualizar"><i class="fa-solid fa-thumbtack" aria-hidden="true"></i></button>
+        <button type="button" id="personal-notes-minimize" aria-label="Minimizar bloco de notas" title="Minimizar">_</button>
+        <button type="button" id="personal-notes-privacy" aria-label="Ocultar conteúdo da nota" aria-pressed="false" title="Ocultar conteúdo"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+        <button type="button" id="personal-notes-close" aria-label="Fechar bloco de notas" title="Fechar">×</button>
+      </div>
+    </header>
+    <div class="personal-notes-body">
+      <div class="personal-notes-toolbar" role="toolbar" aria-label="Ferramentas do bloco de notas">
+        <button type="button" id="personal-notes-new" aria-label="Nova nota" title="Nova nota"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+        <button type="button" id="personal-notes-save" aria-label="Salvar agora" title="Salvar agora"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i></button>
+        <button type="button" id="personal-notes-delete" title="Excluir nota"><i class="fa-regular fa-trash-can" aria-hidden="true"></i></button>
+        <button type="button" data-note-history="undo" aria-label="Desfazer" title="Desfazer (Ctrl/Cmd+Z)" disabled><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></button>
+        <button type="button" data-note-history="redo" aria-label="Refazer" title="Refazer (Ctrl/Cmd+Y)" disabled><i class="fa-solid fa-rotate-right" aria-hidden="true"></i></button>
+        <span class="personal-notes-toolbar-divider" aria-hidden="true"></span>
+        <button type="button" data-note-format="bold" aria-label="Inserir negrito" title="Negrito"><strong>B</strong></button>
+        <button type="button" data-note-format="italic" aria-label="Inserir itálico" title="Itálico"><em>I</em></button>
+        <button type="button" data-note-format="list" aria-label="Inserir item de lista" title="Lista"><i class="fa-solid fa-list" aria-hidden="true"></i></button>
+        <button type="button" id="personal-notes-settings-toggle" class="personal-notes-settings-toggle" aria-label="Configurações da nota" aria-expanded="false" title="Cor e tamanho"><i class="fa-solid fa-gear" aria-hidden="true"></i></button>
+      </div>
+      <div id="personal-notes-settings" class="personal-notes-settings" hidden>
+        <label>Cor do post-it
+          <select id="personal-notes-color" aria-label="Cor do post-it">
+            <option value="yellow">Amarelo</option>
+            <option value="pink">Rosa</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="lavender">Lilás</option>
+          </select>
+        </label>
+        <button type="button" id="personal-notes-reset-size" class="personal-notes-reset-size">Restaurar tamanho</button>
+      </div>
+      <nav class="personal-notes-categories" aria-label="Categorias das notas">
+        <button type="button" class="active" data-note-category="Geral" aria-pressed="true">Geral</button>
+        <button type="button" data-note-category="Chamados" aria-pressed="false">Chamados</button>
+        <button type="button" data-note-category="Acessos" aria-pressed="false">Acessos</button>
+      </nav>
+      <div class="personal-notes-note-picker">
+        <label class="sr-only" for="personal-notes-select">Selecionar nota</label>
+        <select id="personal-notes-select" aria-label="Selecionar nota"></select>
+        <input id="personal-notes-title" type="text" maxlength="120" aria-label="Título da nota" placeholder="Título da nota">
+      </div>
+      <div class="personal-notes-warning" role="note"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Evite guardar senhas ou credenciais de produção neste bloco.</div>
+      <div id="personal-notes-content" class="personal-notes-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Conteúdo da nota" data-placeholder="Anote aqui lembretes, chamados e informações rápidas..."></div>
+      <footer class="personal-notes-footer">
+        <span id="personal-notes-save-status" role="status" aria-live="polite">Suas notas são pessoais.</span>
+        <span id="personal-notes-char-count">0 / 50.000</span>
+      </footer>
+    </div>
+  </aside>
+</div>

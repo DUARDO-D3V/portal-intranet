@@ -1,0 +1,59 @@
+<section id="perfil-section" class="content-section">
+  <div class="section-header">
+    <h1><i data-lucide="user"></i> Meu Perfil</h1>
+    <p>Gerencie suas informações pessoais e configurações da conta</p>
+  </div>
+  
+  <div class="profile-container">
+    <div class="card profile-card">
+      <div class="card-header">
+        <h3>
+          <i data-lucide="user-lock"></i> Informações Pessoais
+          <button id="profile-edit-btn" class="icon-btn header-action-btn" title="Editar Perfil"><i data-lucide="pencil"></i></button>
+        </h3>
+      </div>
+      <div class="card-content">
+        <div class="profile-form">
+          <div class="profile-photo-section">
+            <div class="profile-photo"><span id="profile-photo" aria-label="Foto do perfil">U</span></div>
+            <div id="avatar-controls" class="profile-edit-controls" style="display: none;">
+              <form id="avatar-form">
+                <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display: none;">
+                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('avatar-input').click();">Escolher Foto</button>
+              </form>
+            </div>
+          </div>
+          <div class="form-group">
+            <label><i class="fa-solid fa-signature"></i> Nome de Exibição</label>
+            <p id="display-name-text" class="form-input-display"></p>
+            <input type="text" id="display-name-input" class="form-input profile-edit-controls" style="display: none;">
+          </div>
+          <div class="form-group"><label><i class="fa-solid fa-user-tie"></i> Cargo</label><p id="user-cargo-display" class="form-input-display"></p></div>
+          <div class="form-group"><label><i class="fa-solid fa-envelope"></i> Email</label><p id="user-email-display" class="form-input-display"></p></div>
+          <div class="form-group"><label><i class="fa-solid fa-hourglass-half"></i> Jornada de Trabalho</label><p id="user-jornada-display" class="form-input-display"></p></div>
+          <div class="form-group">
+            <label><i class="fa-solid fa-mobile-screen"></i> Telefone</label>
+            <p id="user-telefone-text" class="form-input-display"></p>
+            <input type="text" id="user-telefone-input" class="form-input profile-edit-controls" style="display: none;" placeholder="(XX) XXXXX-XXXX">
+          </div>
+        </div>
+        <div id="profile-actions-container" class="button-container profile-edit-controls" style="display: none;">
+          <button id="profile-cancel-btn" class="btn btn-outline"><i data-lucide="circle-x"></i></button>
+          <button id="profile-save-btn" class="btn btn-primary"><i data-lucide="save"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card profile-card">
+      <div class="card-header"><h3><i data-lucide="user-lock"></i> Alterar Senha</h3></div>
+      <div class="card-content">
+        <form id="password-form" class="password-form">
+          <div class="form-group"><label for="current-password">Senha Atual</label><input type="password" id="current-password" class="form-input" required></div>
+          <div class="form-group"><label for="new-password">Nova Senha</label><input type="password" id="new-password" class="form-input" required></div>
+          <div class="form-group"><label for="confirm-password">Confirmar Nova Senha</label><input type="password" id="confirm-password" class="form-input" required></div>
+          <div class="button-container justify-center"><button type="submit" class="btn btn-primary">Alterar Senha</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<section id="feed-section" class="content-section active">
+  <div class="feed-layout">
+    <aside class="feed-sidebar" aria-label="Navegação do feed">
+      <nav class="feed-filters" aria-label="Filtrar publicações">
+        <button type="button" class="feed-filter active" data-feed-filter="Todos" aria-pressed="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Todas</button>
+        <button type="button" class="feed-filter" data-feed-filter="Salvos" aria-pressed="false"><i class="fa-regular fa-bookmark" aria-hidden="true"></i> Salvos</button>
+        <button type="button" class="feed-filter" data-feed-filter="Pendências" aria-pressed="false"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Pendências</button>
+        <button type="button" class="feed-filter" data-feed-filter="Procedimentos" aria-pressed="false"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Procedimentos</button>
+        <button type="button" class="feed-filter" data-feed-filter="Alertas" aria-pressed="false"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Alertas</button>
+        <button type="button" class="feed-filter" data-feed-filter="Informativos" aria-pressed="false"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Informativos</button>
+        <button type="button" class="feed-filter" data-feed-filter="Outros" aria-pressed="false"><i class="fa-solid fa-ellipsis" aria-hidden="true"></i> Outros</button>
+      </nav>
+    </aside>
+
+    <div class="feed-column">
+    <div class="post-form-container">
+      <form id="post-form" class="post-form">
+        <div class="feed-composer-heading">
+          <div>
+            <h2>Nova publicação</h2>
+            <p>Escolha uma categoria e compartilhe com a equipe.</p>
+          </div>
+          <label class="feed-category-field" for="post-category">
+            <span>Categoria</span>
+            <select id="post-category" class="form-input" name="category">
+              <option value="Pendências">Pendências</option>
+              <option value="Procedimentos">Procedimentos</option>
+              <option value="Alertas">Alertas</option>
+              <option value="Informativos">Informativos</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </label>
+        </div>
+      <div id="toolbar-container">
+        <span class="ql-formats"><select class="ql-size"></select></span>
+        <span class="ql-formats">
+          <button class="ql-bold"></button>
+          <button class="ql-italic"></button>
+          <button class="ql-underline"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-list" value="ordered"></button>
+          <button class="ql-list" value="bullet"></button>
+        </span>
+      </div>
+      <div id="editor-container" class="feed-editor"></div>
+        <input type="file" id="feed-attachments" class="feed-attachments-input" accept=".pdf,image/*" multiple>
+        <label for="feed-attachments" class="feed-dropzone" id="feed-dropzone">
+          <i class="fa-solid fa-paperclip" aria-hidden="true"></i>
+          <span><strong>Adicionar anexos</strong> — arraste arquivos aqui ou clique para buscar</span>
+          <small>Imagens ou PDF · até 5 arquivos de 10 MB cada</small>
+        </label>
+        <div id="feed-attachment-list" class="feed-attachment-list" aria-live="polite"></div>
+        <div class="feed-composer-actions">
+          <span class="feed-composer-hint"><i class="fa-solid fa-circle-info"></i> Use o editor para formatar a publicação.</span>
+          <button type="submit" class="btn btn-primary feed-submit"><i class="fa-solid fa-paper-plane"></i> Publicar</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="posts-container" class="posts-container">
+      <div class="empty-state" id="empty-state">
+        <i class="fa-regular fa-comments" aria-hidden="true"></i>
+        <p>Nenhuma publicação nesta categoria.</p>
+      </div>
+    </div>
+
+  </div>
+</section>

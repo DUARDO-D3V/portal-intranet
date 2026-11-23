@@ -1,0 +1,45 @@
+<section id="dashboard-zabbix-section" class="content-section">
+  <div class="section-header dashboard-section-header">
+    <div>
+    </div>
+    <button id="btn-zabbix-refresh" class="btn btn-outline">
+      <i class="fa-solid fa-rotate-right"></i> Atualizar
+    </button>
+  </div>
+
+  <div id="zabbix-kpis" class="zabbix-kpis" aria-label="Resumo dos incidentes"></div>
+  <section id="zabbix-stale-panel" class="zabbix-stale-panel" aria-live="polite"></section>
+
+  <div class="zabbix-tabs">
+    <button class="tab-btn active" data-setor="Geral">Geral</button>
+    <button class="tab-btn" data-setor="REDES">REDES</button>
+    <button class="tab-btn" data-setor="TI">TI</button>
+    <button class="tab-btn" data-setor="DATA">DATA</button>
+    <button class="tab-btn" data-setor="DEV">DEV</button>
+    <button class="tab-btn" data-setor="OPS">OPS</button>
+    <button class="tab-btn" data-setor="EPBX">EPBX</button>
+    <button class="tab-btn" data-setor="TX">TX</button>
+</div>
+  <div class="zabbix-view-controls">
+    <label class="zabbix-search-label" for="zabbix-search">Buscar</label>
+    <input id="zabbix-search" class="zabbix-search" type="search" placeholder="Host, problema ou chamado" aria-label="Buscar incidentes">
+    <button id="btn-zabbix-oldest" class="btn btn-outline" type="button" aria-pressed="false" title="Ordenar pelos incidentes mais antigos primeiro">
+      <i class="fa-solid fa-arrow-down-wide-short"></i> Mais antigos primeiro
+    </button>
+    <button id="btn-view-grid" class="btn btn-outline" title="Visualização em Cards">
+        <i class="fa-solid fa-table-cells-large"></i>
+    </button>
+    <button id="btn-view-list" class="btn btn-outline" title="Visualização em Lista">
+        <i class="fa-solid fa-list"></i>
+    </button>
+    <span id="zabbix-last-updated" class="zabbix-last-updated" aria-live="polite">Aguardando dados</span>
+  </div>
+  <div id="zabbix-dashboard-container">
+        <div id="zabbix-cards-grid">
+          <div class="zabbix-loading-state">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+              <p>Conectando ao núcleo do Zabbix...</p>
+          </div>
+      </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+<section id="boasvindas-section" class="content-section">
+  <div class="home-dashboard">
+    <div class="home-main-column">
+      <header class="home-welcome-heading">
+        <h1>Bem-vindo, <span id="welcome-name"></span></h1>
+        <p>Sua central de conhecimento, ferramentas e atualizações do NOC.</p>
+      </header>
+
+      <section class="home-search-section" aria-label="Busca global na base de conhecimento">
+        <label class="home-search-box" for="home-search-input">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input id="home-search-input" type="search" placeholder="Buscar procedimentos, contatos e informações..." autocomplete="off">
+          <kbd>Enter</kbd>
+        </label>
+        <div id="home-search-results" class="home-search-results" role="listbox" aria-label="Resultados da busca" hidden></div>
+      </section>
+
+      <section class="home-quick-access" aria-labelledby="home-quick-title">
+        <div class="home-section-heading"><h2 id="home-quick-title">Acesso rápido</h2></div>
+        <div class="home-quick-grid">
+          <button type="button" class="home-quick-card" data-home-section="base-conhecimento">
+            <i data-lucide="notebook-text" aria-hidden="true"></i><span>Procedimentos</span><i data-lucide="arrow-up-right" class="home-quick-arrow" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="home-quick-card" data-home-section="contatos">
+            <i data-lucide="users-round" aria-hidden="true"></i><span>Contatos</span><i data-lucide="arrow-up-right" class="home-quick-arrow" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="home-quick-card" data-home-section="atendimento-sag">
+            <i data-lucide="calendar-days" aria-hidden="true"></i><span>Escalas</span><i data-lucide="arrow-up-right" class="home-quick-arrow" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="home-quick-card" data-home-section="pop-info">
+            <i data-lucide="map-pin" aria-hidden="true"></i><span>Informações POPs</span><i data-lucide="arrow-up-right" class="home-quick-arrow" aria-hidden="true"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="home-informatives" aria-labelledby="home-informatives-title">
+        <div class="home-section-heading">
+          <div><h2 id="home-informatives-title">Informativos</h2><p>Publicações do Feed fixadas para consulta rápida.</p></div>
+        </div>
+        <div id="home-informatives-list" class="home-informatives-list" aria-live="polite">
+          <div class="home-empty-state"><i data-lucide="pin" aria-hidden="true"></i><p>Carregando informativos fixados...</p></div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="home-side-column">
+      <section class="home-mission-card">
+        <div class="home-mission-heading"><i data-lucide="award" aria-hidden="true"></i><h2>Nossa Missão</h2></div>
+        <p>Nossa equipe é <strong>responsável por monitorar e gerenciar a infraestrutura e guardiã da estabilidade</strong> de redes e sistemas do grupo Talk Communications. O objetivo principal do NOC é garantir a disponibilidade e desempenho contínuo das redes e serviços relacionados, <strong>24 horas por dia, 7 dias por semana</strong>.</p>
+      </section>
+
+      <section class="home-recados-card" aria-labelledby="home-recados-title">
+        <div class="home-recados-heading"><div><h2 id="home-recados-title"><i data-lucide="messages-square" aria-hidden="true"></i> Recados rápidos</h2><p>Mural de lembretes da equipe · últimas 24 horas</p></div></div>
+        <form id="recado-form" class="recado-form-small">
+          <label class="sr-only" for="recado-input">Deixe um recado para a equipe</label>
+          <textarea id="recado-input" class="form-input" placeholder="Deixe um recado para a equipe..." required maxlength="500" rows="2"></textarea>
+          <button type="submit" class="btn btn-primary" aria-label="Publicar recado"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+        <div id="recados-list-container" class="recados-list-container" aria-live="polite"></div>
+      </section>
+    </aside>
+  </div>
+</section>

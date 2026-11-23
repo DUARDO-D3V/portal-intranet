@@ -1,0 +1,176 @@
+<section id="admin-section" class="content-section">
+  <div class="section-header">
+    <h1>Painel de Gestão</h1>
+    <p>Área exclusiva para administradores do sistema.</p>
+  </div>
+
+  <div class="card admin-panel-card">
+    <nav class="admin-panel-tabs" role="tablist" aria-label="Funções de gestão">
+      <button class="admin-panel-tab active" id="admin-tab-sag" type="button" role="tab" aria-selected="true" aria-controls="admin-panel-sag" data-admin-tab="admin-panel-sag">
+        <i data-lucide="file-input"></i><span>Atualizar Escala SAG</span>
+      </button>
+      <button class="admin-panel-tab" id="admin-tab-agera" type="button" role="tab" aria-selected="false" aria-controls="admin-panel-agera" data-admin-tab="admin-panel-agera">
+        <i data-lucide="calendar-days"></i><span>Atualizar escala técnica</span>
+      </button>
+      <button class="admin-panel-tab" id="admin-tab-epbx" type="button" role="tab" aria-selected="false" aria-controls="admin-panel-epbx" data-admin-tab="admin-panel-epbx">
+        <i data-lucide="headset"></i><span>Escala EPBX</span>
+      </button>
+      <button class="admin-panel-tab" id="admin-tab-users" type="button" role="tab" aria-selected="false" aria-controls="admin-panel-users" data-admin-tab="admin-panel-users">
+        <i data-lucide="user-round-plus"></i><span>Adicionar Novo Usuário</span>
+      </button>
+    </nav>
+
+    <div class="card-content admin-panel-management-content">
+      <section class="admin-panel-tab-panel active" id="admin-panel-sag" role="tabpanel" aria-labelledby="admin-tab-sag">
+        <p class="admin-panel-description">Faça o upload de um arquivo Excel (.xlsx) com a aba 'SAG' para atualizar a escala de plantão.</p>
+        <form id="schedule-upload-form" class="admin-panel-form admin-panel-form--column">
+          <label class="admin-panel-upload-zone" for="schedule-file-input">
+            <i data-lucide="file-up" class="admin-panel-upload-icon"></i>
+            <span class="admin-panel-upload-copy">Arraste a planilha de escala (.xlsx) aqui ou<br>clique para selecionar o arquivo</span>
+            <input type="file" id="schedule-file-input" name="scheduleFile" class="admin-panel-upload-input" accept=".xlsx" required>
+          </label>
+          <div id="upload-status" class="admin-panel-upload-status" aria-live="polite"></div>
+          <button type="submit" class="btn btn-primary admin-panel-upload-button"><i class="fa-solid fa-upload"></i> Enviar e atualizar escala</button>
+        </form>
+      </section>
+
+      <section class="admin-panel-tab-panel" id="admin-panel-agera" role="tabpanel" aria-labelledby="admin-tab-agera" hidden>
+        <h2 class="admin-panel-panel-title">Gerador de escala</h2>
+        <form id="agera-generator-form" class="admin-panel-form admin-panel-form--column">
+          <div class="admin-panel-day-field admin-panel-month-field">
+            <label class="admin-panel-label" for="agera-ref-month">Mês de início (Dia 11):</label>
+            <input type="month" id="agera-ref-month" class="form-input admin-panel-control admin-panel-control--month" required>
+          </div>
+          <div class="admin-panel-day-fields">
+            <div class="admin-panel-day-field">
+              <label class="admin-panel-label" for="agera-d1">Dia 11:</label>
+              <select id="agera-d1" class="form-input admin-panel-control--day" required>
+                <option value="" disabled selected>Selecione...</option><option value="Operador 1">Operador 1</option><option value="Operador 2">Operador 2</option>
+              </select>
+            </div>
+            <div class="admin-panel-day-field">
+              <label class="admin-panel-label" for="agera-d2">Dia 12:</label>
+              <select id="agera-d2" class="form-input admin-panel-control--day" required>
+                <option value="" disabled selected>Selecione...</option><option value="Operador 1">Operador 1</option><option value="Operador 2">Operador 2</option>
+              </select>
+            </div>
+            <div class="admin-panel-day-field">
+              <label class="admin-panel-label" for="agera-d3">Dia 13:</label>
+              <select id="agera-d3" class="form-input admin-panel-control--day" required>
+                <option value="" disabled selected>Selecione...</option><option value="Operador 1">Operador 1</option><option value="Operador 2">Operador 2</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-panel-button-row"><button type="submit" class="btn btn-primary admin-panel-button--fixed">Gerar escala</button></div>
+        </form>
+        <hr class="admin-panel-divider">
+        <h3 class="admin-panel-subtitle">Substituição pontual</h3>
+        <form id="agera-override-form" class="admin-panel-form admin-panel-form--row">
+          <div class="admin-panel-day-field">
+            <label class="admin-panel-label" for="agera-override-date">Data da troca:</label>
+            <input type="date" id="agera-override-date" class="form-input admin-panel-control" required>
+          </div>
+          <div class="admin-panel-day-field">
+            <label class="admin-panel-label" for="agera-override-person">Novo Plantonista:</label>
+            <select id="agera-override-person" class="form-input admin-panel-control" required><option value="Operador 1">Operador 1</option><option value="Operador 2">Operador 2</option></select>
+          </div>
+          <div><button type="submit" class="btn btn-primary admin-panel-button--override">Alterar Dia</button></div>
+        </form>
+      </section>
+
+      <section class="admin-panel-tab-panel" id="admin-panel-epbx" role="tabpanel" aria-labelledby="admin-tab-epbx" hidden>
+        <div class="epbx-admin-heading">
+          <div><h2 class="admin-panel-panel-title">Escala EPBX</h2><p>Configure a rotação, a equipe e as exceções em um só lugar.</p></div>
+          <div id="epbx-admin-status" class="epbx-admin-status" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="epbx-admin-settings-card">
+          <div class="epbx-admin-card-heading"><span class="epbx-admin-step">1</span><div><h3>Horários e início da rotação</h3><p>Dias úteis: 18:01–07:59 do dia seguinte. Fins de semana e feriados: 08:00–07:59 do dia seguinte. A rotação muda às 08:00.</p></div></div>
+          <form id="epbx-settings-form" class="epbx-admin-settings-form">
+            <label for="epbx-rotation-start">Primeiro dia<input id="epbx-rotation-start" type="date" class="form-input" required></label>
+            <label for="epbx-weekday-start">Dias úteis · início<input id="epbx-weekday-start" type="time" class="form-input" required></label>
+            <label for="epbx-weekday-end">Dias úteis · fim<input id="epbx-weekday-end" type="time" class="form-input" required></label>
+            <label for="epbx-weekend-start">Fim de semana · início<input id="epbx-weekend-start" type="time" class="form-input" required></label>
+            <label for="epbx-weekend-end">Fim de semana · fim<input id="epbx-weekend-end" type="time" class="form-input" required></label>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check" aria-hidden="true"></i> Salvar horários</button>
+          </form>
+        </div>
+
+        <div class="epbx-admin-settings-grid">
+          <section class="epbx-admin-settings-card epbx-admin-team-card">
+            <div class="epbx-admin-card-heading"><span class="epbx-admin-step">2</span><div><h3>Ordem da equipe</h3><p>Use as setas para definir quem entra primeiro na rotação.</p></div></div>
+            <div id="epbx-roster-list" class="epbx-admin-roster-list"></div>
+            <form id="epbx-add-member-form" class="epbx-admin-add-member">
+              <label>Nome<input id="epbx-member-name" class="form-input" maxlength="120" required placeholder="Nome completo"></label>
+              <label>Telefone<input id="epbx-member-phone" class="form-input" maxlength="40" placeholder="(00) 00000-0000"></label>
+              <label>E-mail<input id="epbx-member-email" type="email" class="form-input" maxlength="160" placeholder="plantonista@empresa.com"></label>
+              <button type="submit" class="btn btn-primary" aria-label="Adicionar plantonista" title="Adicionar plantonista"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            </form>
+          </section>
+
+          <section class="epbx-admin-settings-card">
+            <div class="epbx-admin-card-heading"><span class="epbx-admin-step">3</span><div><h3>Trocas pontuais</h3><p>Substitui a rotação apenas na data escolhida.</p></div></div>
+            <form id="epbx-override-form" class="epbx-admin-exception-form">
+              <label>Data<input id="epbx-override-date" type="date" class="form-input" required></label>
+              <label>Novo plantonista<select id="epbx-override-member" class="form-input" required></select></label>
+              <button type="submit" class="btn btn-primary">Adicionar troca</button>
+            </form>
+            <div id="epbx-overrides-list" class="epbx-admin-record-list"></div>
+          </section>
+
+          <section class="epbx-admin-settings-card">
+            <div class="epbx-admin-card-heading"><span class="epbx-admin-step">4</span><div><h3>Férias e ausências</h3><p>Durante o período, a rotação pula esse plantonista.</p></div></div>
+            <form id="epbx-absence-form" class="epbx-admin-exception-form epbx-admin-absence-form">
+              <label>Plantonista<select id="epbx-absence-member" class="form-input" required></select></label>
+              <label>De<input id="epbx-absence-start" type="date" class="form-input" required></label>
+              <label>Até<input id="epbx-absence-end" type="date" class="form-input" required></label>
+              <label>Motivo <span>(opcional)</span><input id="epbx-absence-reason" class="form-input" maxlength="160" placeholder="Férias"></label>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+            <div id="epbx-absences-list" class="epbx-admin-record-list"></div>
+          </section>
+
+          <section class="epbx-admin-settings-card">
+            <div class="epbx-admin-card-heading"><span class="epbx-admin-step">5</span><div><h3>Feriados automáticos</h3><p>Fins de semana e feriados nacionais são calculados pela data. Não é preciso cadastrar cada dia.</p></div></div>
+            <div id="epbx-auto-holidays-list" class="epbx-admin-auto-holidays" aria-live="polite"></div>
+            <hr class="admin-panel-divider">
+            <h4 class="epbx-admin-local-holidays-title">Feriados locais adicionais <span>(opcional)</span></h4>
+            <p class="epbx-admin-local-holidays-help">Use apenas para feriados municipais ou da empresa não incluídos no calendário nacional.</p>
+            <form id="epbx-holiday-form" class="epbx-admin-exception-form epbx-admin-holiday-form">
+              <label>Data<input id="epbx-holiday-date" type="date" class="form-input" required></label>
+              <label>Nome do feriado<input id="epbx-holiday-name" class="form-input" maxlength="120" required placeholder="Ex.: Feriado municipal"></label>
+              <button type="submit" class="btn btn-outline">Adicionar local</button>
+            </form>
+            <div id="epbx-holidays-list" class="epbx-admin-record-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="admin-panel-tab-panel" id="admin-panel-users" role="tabpanel" aria-labelledby="admin-tab-users" hidden>
+        <form id="add-user-form" class="admin-panel-form admin-panel-form--column">
+          <div class="admin-panel-fields">
+            <div class="form-group admin-panel-field"><label for="new-user-name">Nome e sobrenome:</label><input type="text" id="new-user-name" class="form-input" required placeholder="Ex: João Maria"></div>
+            <div class="form-group admin-panel-field"><label for="new-user-username">Login de rede:</label><input type="text" id="new-user-username" class="form-input" required placeholder="Ex: joão.maria"></div>
+          </div>
+          <div class="admin-panel-fields admin-panel-fields--end">
+            <div class="form-group admin-panel-field admin-panel-field--wide"><label for="new-user-email">E-mail:</label><input type="email" id="new-user-email" class="form-input" required placeholder="usuario@example.com"></div>
+            <div class="form-group admin-panel-field admin-panel-field--password"><label>Senha inicial:</label><input type="text" class="form-input" value="Definida pelo administrador" disabled></div>
+          </div>
+          <div class="admin-panel-fields admin-panel-fields--spaced">
+            <div class="form-group admin-panel-field"><label for="new-user-cargo">Cargo:</label><input type="text" id="new-user-cargo" class="form-input" placeholder="Ex: Analista de Suporte"></div>
+            <div class="form-group admin-panel-field"><label for="new-user-jornada">Jornada de Trabalho:</label><input type="text" id="new-user-jornada" class="form-input" placeholder="Ex: 12x36, 5x2, 08:00-16:00"></div>
+          </div>
+          <div class="admin-panel-permissions">
+            <div class="form-group admin-panel-permissions-field">
+              <label class="admin-panel-permissions-label"><i class="fa-solid fa-list-check"></i> Permissões de Acesso (Seções):</label>
+              <div class="admin-panel-permissions-grid" id="user-permissions-checkboxes">
+                <label><input type="checkbox" name="permissions" value="boasvindas" checked> Início</label><label><input type="checkbox" name="permissions" value="feed" checked> Feed</label><label><input type="checkbox" name="permissions" value="chamados"> Operadoras (Chamados)</label><label><input type="checkbox" name="permissions" value="contatos"> Contatos</label><label><input type="checkbox" name="permissions" value="epbx"> Atendimento EPBX</label>                <label><input type="checkbox" name="permissions" value="agera"> Atendimento técnico</label><label><input type="checkbox" name="permissions" value="pop-info"> Info POPs</label><label><input type="checkbox" name="permissions" value="base-conhecimento"> Base Conhecimento</label><label><input type="checkbox" name="permissions" value="dashboard-zabbix" checked> Dashboard Zabbix</label>
+              </div>
+            </div>
+          </div>
+          <div class="admin-panel-submit"><button type="submit" class="btn btn-primary admin-panel-button--full"><i class="fa-solid fa-check"></i> Cadastrar usuário</button></div>
+        </form>
+      </section>
+    </div>
+  </div>
+</section>

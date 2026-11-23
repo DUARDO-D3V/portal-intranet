@@ -1,0 +1,35 @@
+#chamados-section .card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#chamados-section .card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+#chamados-section .card-actions .btn {
+  max-width: 200px;
+  flex-grow: 1;
+}
+
+#chamados-section .cards-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  #chamados-section .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #chamados-section .cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

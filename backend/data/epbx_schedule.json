@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "rotationStartDate": "2026-01-01",
+    "weekdayStart": "18:01",
+    "weekdayEnd": "07:59",
+    "weekendStart": "08:00",
+    "weekendEnd": "07:59"
+  },
+  "members": [
+    {
+      "id": "operator-1",
+      "name": "Operador exemplo 1",
+      "phone": "(00) 00000-0000",
+      "email": "operador1@example.com",
+      "order": 0,
+      "active": true
+    },
+    {
+      "id": "operator-2",
+      "name": "Operador exemplo 2",
+      "phone": "(00) 00000-0000",
+      "email": "operador2@example.com",
+      "order": 1,
+      "active": true
+    }
+  ],
+  "overrides": [],
+  "absences": [],
+  "holidays": []
+}

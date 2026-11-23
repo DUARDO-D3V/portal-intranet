@@ -1,0 +1,53 @@
+#perfil-section .profile-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#perfil-section .profile-container .card-header { background: var(--gradient-welcome); }
+#perfil-section .card { display: flex; flex-direction: column; margin-bottom: 0; background: var(--muted); border: 1px solid var(--primary); }
+#perfil-section .card-content { display: flex; flex-grow: 1; flex-direction: column; }
+#perfil-section .profile-form,
+#perfil-section #password-form { display: flex; flex-direction: column; }
+#perfil-section .profile-card { height: auto; }
+#perfil-section .button-container { margin-top: 5px; padding-top: 20px; }
+
+#perfil-section .profile-photo-section { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 0; }
+#perfil-section .profile-photo { position: relative; width: 100px; height: 100px; overflow: hidden; border: 4px solid var(--primary); border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+#perfil-section .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+#perfil-section #avatar-form { display: flex; align-items: center; justify-content: center; gap: 12px; }
+#perfil-section #avatar-form .btn { width: 150px; margin: 0; }
+
+#perfil-section .button-container .btn { display: block; width: 120px; margin: 0 auto; }
+#perfil-section .card-header { padding: 16px 20px; color: var(--primary-foreground); background: var(--primary-dark); border-bottom: 1px solid var(--primary); }
+#perfil-section .card-header h3,
+#perfil-section .card-header svg { color: var(--primary-foreground); }
+#perfil-section .card-header-senha { padding: 16px 20px; color: var(--destructive-foreground); background: var(--destructive); border-bottom: 1px solid var(--border); }
+#perfil-section .card-header-senha h3 { color: var(--destructive-foreground); }
+
+#perfil-section .profile-container { grid-template-columns: 2fr 1fr; align-items: start; }
+#perfil-section .profile-sidebar { display: flex; flex-direction: column; gap: 24px; }
+#perfil-section .profile-card--compact { height: auto; }
+#perfil-section .profile-card--compact .card-header { background: var(--card); border-bottom: 1px solid var(--border); }
+#perfil-section .profile-card--compact .card-header h3 { color: var(--card-foreground); }
+#perfil-section .profile-card--compact .card-header i { color: var(--primary); }
+#perfil-section .profile-card--compact .card-content { padding: 16px; }
+#perfil-section .profile-card--compact .form-group { gap: 4px; }
+#perfil-section .profile-card--compact .form-group label { font-size: 13px; }
+#perfil-section .profile-card--compact .form-input { padding: 8px 10px; font-size: 14px; }
+#perfil-section .profile-card--compact .button-container { padding-top: 16px; }
+
+#perfil-section .theme-selector { padding: 4px 0; }
+#perfil-section .theme-toggle-container { margin-top: 8px; }
+#perfil-section .theme-toggle { display: flex; width: 100%; max-width: 300px; gap: 4px; padding: 4px; background: var(--muted); border: 1px solid var(--border); border-radius: var(--radius); }
+#perfil-section .theme-option { display: flex; flex: 1; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; color: var(--muted-foreground); background: transparent; border-radius: calc(var(--radius) - 2px); cursor: pointer; transition: var(--transition); font-size: 14px; font-weight: 500; }
+#perfil-section .theme-option.active { color: var(--foreground); background: var(--card); box-shadow: var(--shadow); }
+#perfil-section .theme-option:hover:not(.active) { color: var(--foreground); }
+
+@media (max-width: 800px) {
+  #perfil-section .profile-container { grid-template-columns: 1fr; }
+}

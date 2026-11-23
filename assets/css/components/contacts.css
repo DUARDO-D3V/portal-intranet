@@ -1,0 +1,67 @@
+#contatos-section .contacts-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+#contatos-section .contacts-add-button {
+  display: none;
+  height: 40px;
+  flex: 0 0 auto;
+}
+
+#contatos-section .contacts-add-icon {
+  margin-right: 8px;
+}
+
+#contatos-section .contacts-loading {
+  width: 100%;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+#contatos-section .contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 8px; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: var(--transition);
+}
+.contact-link:hover { color: var(--primary-dark); }
+.contact-phone { color: var(--foreground); font-size: 14px; margin-bottom: 4px; display: block; }
+
+#modal-contato .modal-content {
+  max-width: 400px;
+}
+
+#modal-contato #form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+#modal-contato .modal-actions {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #contatos-section .contacts-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #contatos-section .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+}

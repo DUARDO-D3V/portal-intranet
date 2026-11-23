@@ -1,0 +1,97 @@
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content">
+      <h3>Confirmar exclusão</h3>
+      <p>Deseja realmente excluir este post? Esta ação não pode ser desfeita.</p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn btn-outline">Cancelar</button>
+        <button id="modal-confirm" class="btn btn-emergency">Excluir</button>
+      </div>
+    </div>
+  </div>
+  <div id="custom-confirm-modal" class="modal">
+    <div class="modal-content">
+      <h3 id="custom-confirm-title">Confirmar Ação</h3>
+      <p id="custom-confirm-text">Você tem certeza que deseja continuar?</p>
+      <div class="modal-actions">
+        <button id="custom-confirm-cancel" class="btn btn-outline">Cancelar</button>
+        <button id="custom-confirm-ok" class="btn btn-emergency">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-container">
+      <h3 id="modal-title">Título do Modal</h3>
+      <p id="modal-text">Mensagem do modal.</p>
+      <div class="modal-actions">
+        <button id="modal-cancel-btn" class="btn btn-outline">Cancelar</button>
+        <button id="modal-confirm-btn" class="btn btn-primary">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="ack-modal" class="modal">
+    <div class="modal-content">
+      <h3 class="ack-modal-title"><i class="fa-solid fa-ticket"></i> Atualizar</h3>
+      <div class="ack-modal-context">
+        <span class="ack-modal-label">HOST:</span><br>
+        <strong id="ack-modal-host"></strong><br>
+        <span id="ack-modal-trigger"></span>
+      </div>
+      <form id="ack-form">
+        <input type="hidden" id="ack-event-id">
+        <div class="form-group">
+          <label id="ack-ticket-input-label" for="ack-ticket-input">Chamado ou mensagem:</label>
+          <input type="text" id="ack-ticket-input" class="form-input" placeholder="Ex: GLPI 11916 ou aguardando retorno da operadora" maxlength="200" required autocomplete="off">
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="ack-cancel-btn" class="btn btn-outline">Cancelar</button>
+          <button type="submit" id="ack-confirm-btn" class="btn btn-primary">
+            <i class="fa-solid fa-check"></i> Reconhecer e atualizar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="details-modal" class="modal">
+    <div class="modal-content">
+      <div class="details-modal-header">
+          <h3 class="details-modal-title"><i class="fa-solid fa-circle-info"></i> Detalhes do Incidente</h3>
+          <button id="details-close-icon">&times;</button>
+      </div>
+      <div id="details-modal-body"></div>
+      <div class="modal-actions">
+        <button type="button" id="details-close-btn" class="btn btn-primary">Fechar Detalhes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="zabbix-context-menu">
+    <div class="context-menu-title">
+        Opções do Host
+    </div>
+    <a href="#" id="menu-view-history">
+      <i class="fa-solid fa-chart-area"></i> Ver Histórico
+    </a>
+    <a href="#" id="menu-filter-incidents">
+      <i class="fa-solid fa-filter"></i> Filtrar Incidentes
+    </a>
+  </div>
+
+  <div id="host-history-modal" class="modal">
+    <div class="modal-content">
+      <div class="history-modal-header">
+            <div>
+          <h3 id="history-modal-title"><i class="fa-solid fa-chart-line"></i> Histórico</h3>
+          <select id="history-item-selector" class="form-input">
+                    <option value="">Carregando métricas...</option>
+                </select>
+            </div>
+            <button class="history-modal-close" onclick="document.getElementById('host-history-modal').classList.remove('show')">&times;</button>
+        </div>
+          <div class="history-chart-container">
+            <canvas id="hostHistoryChart"></canvas>
+        </div>
+    </div>
+  </div>

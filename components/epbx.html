@@ -1,0 +1,78 @@
+<section id="epbx-section" class="content-section">
+      <div class="section-header">
+        <h1><i data-lucide="calendar-sync"></i> Atendimento EPBX</h1>
+        <p>Escopo: <br>
+        Assunto: [ATENDIMENTO EPBX] - *Empresa* - DD/MM/AAAA hh:mm<br>
+        Senhores,<br>
+        Segue informações do atendimento prestado.<br>
+        Empresa: <br>
+        Solicitante: <br>
+        Telefone: <br>
+        Problema: <br>
+        Chamada transferida para o analista " " de plantão com sucesso às hh:mm DD/MM/AAAA.</p>
+      </div>
+      
+      <!-- Plantonista Atual -->
+      <div class="plantonista-atual-card">
+        <h2 class="plantonista-header">🟢 Plantonista de hoje</h2>
+        <div class="plantonista-info">
+          <div class="plantonista-item">
+            <span class="plantonista-label"><i class="fa-solid fa-user"></i> Nome</span>
+            <span class="plantonista-value" id="epbx-current-name">Carregando...</span>
+          </div>
+            <div class="plantonista-item">
+              <span class="plantonista-label"><i class="fa-solid fa-phone"></i> Telefone</span>
+              <span class="plantonista-value" id="epbx-current-phone">Carregando...</span>
+            </div>
+          <div class="plantonista-item">
+                    <span class="plantonista-label"><i class="fa-solid fa-user-tie"></i> Escalonamento</span>
+                    <span class="plantonista-value">suporte@example.com<br>(00) 00000-0000</span>
+          </div>
+          <div class="plantonista-item">
+            <span class="plantonista-label"><i class="fa-solid fa-envelope"></i> E-mail</span>
+            <span class="plantonista-value">suporte@example.com</span>
+          </div>
+          <div class="plantonista-item">
+            <span class="plantonista-label"><i class="fa-solid fa-toggle-on"></i> Status</span>
+            <span id="epbx-current-status">Carregando...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informações do Plantão -->
+      <div class="informacoes-plantao">
+        <h3 class="info-header">Informações do plantão</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-calendar-days"></i> Data</span>
+            <span class="info-value" id="epbx-current-date">31/08/2025</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-calendar-day"></i> Dia da semana</span>
+            <span class="info-value" id="epbx-current-day">Sábado</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-clock"></i> Turno de hoje</span>
+            <span class="info-value" id="epbx-current-shift">Tarde (14:00-22:00)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Escala Completa -->
+      <div class="escala-completa">
+        <h3 class="escala-header">Equipe de plantão</h3>
+        <div class="escala-table">
+          <div class="table-header">
+            <span>Plantonista</span>
+            <span>Turno</span>
+            <span>Dias</span>
+            <span>Telefone</span>
+            <span>E-mail</span>
+            <span>Status</span>
+          </div>
+          <div id="epbx-schedule" class="table-body">
+            <!-- Preenchido pelo JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,35 @@
+<section id="contatos-section" class="content-section">
+  <div class="section-header contacts-heading">
+    <div>
+    </div>
+
+  </div>
+  
+  <div class="search-bar-container">
+    <input type="text" id="searchContatos" placeholder="Pesquisar contato..." class="form-input" />
+    <button id="btn-add-contato" class="btn btn-primary contacts-add-button">
+      <i class="fa-solid fa-plus contacts-add-icon"></i> Adicionar Contato
+    </button>
+  </div>
+  
+  <div class="contacts-grid" id="contatosGrid">
+    <div class="contacts-loading">Carregando contatos...</div>
+  </div>
+</section>
+
+<div id="modal-contato" class="modal">
+  <div class="modal-content">
+    <h3 id="modal-contato-title">Adicionar Contato</h3>
+    <form id="form-contato">
+      <input type="hidden" id="contato-id">
+      <div class="form-group"><input type="text" id="contato-nome" class="form-input" placeholder="Nome do Contato" required></div>
+      <div class="form-group"><input type="text" id="contato-setor" class="form-input" placeholder="Setor/Descrição (ex: Acionamento BHE)" required></div>
+      <div class="form-group"><input type="text" id="contato-telefone" class="form-input" placeholder="Telefone (ex: (00) 00000-0000)" required></div>
+      <div class="form-group"><input type="text" id="contato-email" class="form-input" placeholder="E-mail" required></div>
+      <div class="modal-actions">
+        <button type="button" id="btn-cancel-contato" class="btn btn-outline">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Salvar Contato</button>
+      </div>
+    </form>
+  </div>
+</div>

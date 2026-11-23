@@ -1,0 +1,126 @@
+<section id="zabbix-dados-recentes-section" class="content-section">
+  <div class="section-header">
+    <h1><i class="fa-solid fa-chart-line"></i> Dados Recentes</h1>
+    <p>Métricas de performance (CPU, Memória, Disco, Ping)</p>
+  </div>
+  <div class="development-message">
+    O visualizador de métricas está em desenvolvimento 🚧
+  </div>
+</section>
+
+<section id="zabbix-mapas-section" class="content-section">
+  <div class="section-header">
+    <h1><i class="fa-solid fa-sitemap"></i> Mapas de Topologia</h1>
+    <p>Visão topológica da infraestrutura de rede</p>
+  </div>
+  <div class="development-message">
+    A integração com os mapas do Zabbix está em desenvolvimento 🚧
+  </div>
+</section>
+
+<section id="zabbix-monitoramento-section" class="content-section zabbix-monitoring-section">
+  <div class="zmon-toolbar">
+    <button type="button" class="zmon-icon-button" id="zmon-filter-toggle" aria-label="Mostrar ou ocultar filtros" aria-expanded="true"><i class="fa-solid fa-filter"></i></button>
+    <div class="zmon-toolbar-spacer"></div>
+    <label class="zmon-period-control" for="zmon-period-hours"><i class="fa-regular fa-clock"></i><span>Período</span><select id="zmon-period-hours" class="zmon-select"><option value="1">Última hora</option><option value="24">Últimas 24 horas</option><option value="168">Últimos 7 dias</option><option value="720">Últimos 30 dias</option></select></label>
+    <button type="button" class="zmon-period-button" id="zmon-refresh"><i class="fa-solid fa-rotate-right"></i> Atualizar</button>
+  </div>
+
+  <form id="zmon-filter-form" class="zmon-filter-panel">
+    <div class="zmon-filter-grid">
+      <div class="zmon-filter-column">
+        <div class="zmon-filter-row">
+          <label>Mostrar</label>
+          <div class="zmon-tabs" role="tablist" aria-label="Tipo de monitoramento">
+            <button type="button" class="zmon-tab active" data-monitor-mode="recent" aria-selected="true">Incidentes recentes</button>
+            <button type="button" class="zmon-tab" data-monitor-mode="active" aria-selected="false">Incidentes</button>
+            <button type="button" class="zmon-tab" data-monitor-mode="history" aria-selected="false">Histórico</button>
+          </div>
+        </div>
+        <div class="zmon-filter-row"><label for="zmon-host-group">Grupos de hosts</label><input id="zmon-host-group" class="zmon-input" type="search" placeholder="Informe o grupo para pesquisa"></div>
+        <div class="zmon-filter-row"><label for="zmon-host">Hosts</label><input id="zmon-host" class="zmon-input" type="search" placeholder="Informe o host para pesquisa"></div>
+        <div class="zmon-filter-row"><label for="zmon-trigger">Triggers</label><input id="zmon-trigger" class="zmon-input" type="search" placeholder="Informe o trigger para pesquisa"></div>
+        <div class="zmon-filter-row"><label for="zmon-problem">Incidente</label><input id="zmon-problem" class="zmon-input" type="search"></div>
+        <fieldset class="zmon-filter-row zmon-severity-row">
+          <legend>Severidade</legend>
+          <div class="zmon-checkbox-grid">
+            <label><input type="checkbox" name="severity" value="0" checked> Não classificada</label>
+            <label><input type="checkbox" name="severity" value="2" checked> Baixo</label>
+            <label><input type="checkbox" name="severity" value="4" checked> Alto</label>
+            <label><input type="checkbox" name="severity" value="1" checked> Informativo</label>
+            <label><input type="checkbox" name="severity" value="3" checked> Médio</label>
+            <label><input type="checkbox" name="severity" value="5" checked> Crítico</label>
+          </div>
+        </fieldset>
+        <div class="zmon-filter-row zmon-check-row"><label></label><label><input id="zmon-symptoms" type="checkbox"> Exibir sintomas</label></div>
+        <div class="zmon-filter-row zmon-check-row"><label></label><label><input id="zmon-suppressed" type="checkbox"> Exibir incidentes suprimidos</label></div>
+        <div class="zmon-filter-row">
+          <label>Status de confirmação</label>
+          <div class="zmon-segmented" role="group" aria-label="Status de confirmação">
+            <button type="button" class="active" data-ack-filter="all">Todos</button>
+            <button type="button" data-ack-filter="unacknowledged">Não reconhecido</button>
+            <button type="button" data-ack-filter="acknowledged">Reconhecido</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zmon-filter-column">
+        <div class="zmon-filter-row zmon-inventory-row"><label for="zmon-inventory-type">Inventário do host</label><select id="zmon-inventory-type" class="zmon-select"><option value="">Tipo</option><option value="type">Tipo</option><option value="location">Localização</option><option value="location_lat">Latitude</option><option value="location_lon">Longitude</option><option value="asset_tag">Etiqueta de ativo</option><option value="serialno_a">Número de série</option><option value="vendor">Fornecedor</option><option value="model">Modelo</option></select><input id="zmon-inventory-value" class="zmon-input" type="text" aria-label="Valor do inventário" placeholder="Valor"></div>
+        <div class="zmon-filter-row"><label></label><button id="zmon-add-inventory" type="button" class="zmon-text-button">Adicionar</button><div id="zmon-extra-inventory-filters" class="zmon-extra-filter-list"></div></div>
+        <div class="zmon-filter-row zmon-tag-row"><label>Etiquetas</label><div class="zmon-tag-builder"><div class="zmon-segmented" id="zmon-tag-logic"><button type="button" class="active" data-tag-logic="and">E/OU</button><button type="button" data-tag-logic="or">Ou</button></div><div id="zmon-tag-filters" class="zmon-tag-filter-list"></div><button id="zmon-add-tag" type="button" class="zmon-text-button">Adicionar etiqueta</button></div></div>
+        <div class="zmon-filter-row"><label>Exibir etiquetas</label><div class="zmon-segmented" id="zmon-tag-count"><button type="button" data-tag-count="0">Nenhum</button><button type="button" data-tag-count="1">1</button><button type="button" data-tag-count="2">2</button><button type="button" data-tag-count="3" class="active">3</button><button type="button" data-tag-count="all">Todas</button></div><span class="zmon-inline-label">Nome da etiqueta</span><div class="zmon-segmented" id="zmon-tag-name-mode"><button type="button" data-tag-name-mode="full" class="active">Cheio</button><button type="button" data-tag-name-mode="short">Encurtado</button><button type="button" data-tag-name-mode="none">Nenhum</button></div></div>
+        <div class="zmon-filter-row"><label for="zmon-tag-priority">Prioridade de exibição de etiquetas</label><input id="zmon-tag-priority" class="zmon-input" type="text" placeholder="lista separada por pontos"></div>
+        <div class="zmon-filter-row"><label>Mostrar dados operacionais</label><div class="zmon-segmented" id="zmon-opdata-mode"><button type="button" class="active" data-opdata-mode="none">Nenhum</button><button type="button" data-opdata-mode="separate">Separadamente</button><button type="button" data-opdata-mode="problem">Com o nome do problema</button></div></div>
+        <div class="zmon-filter-row zmon-check-row"><label></label><label><input id="zmon-compact-view" type="checkbox"> Visão compacta</label><label><input id="zmon-show-timeline" type="checkbox" checked> Mostrar a linha do tempo</label></div>
+        <div class="zmon-filter-row zmon-check-row"><label></label><label><input id="zmon-show-details" type="checkbox"> Mostrar detalhes</label><label><input id="zmon-highlight-row" type="checkbox"> Ressaltar linha inteira</label></div>
+      </div>
+    </div>
+    <div class="zmon-filter-actions">
+      <button type="button" id="zmon-save-filter" class="zmon-outline-button">Salvar como</button>
+      <button type="submit" class="zmon-primary-button">Aplicar</button>
+      <button type="reset" class="zmon-outline-button">Limpar</button>
+    </div>
+  </form>
+
+  <div class="zmon-results-panel">
+    <div class="zmon-table-scroll">
+      <table class="zmon-events-table">
+        <thead><tr><th><input id="zmon-select-all" type="checkbox" aria-label="Selecionar todos"></th><th>Hora</th><th>Severidade</th><th>Hora da recuperação</th><th>Status</th><th>Informação</th><th>Host</th><th>Incidente</th><th>Duração</th><th id="zmon-timeline-header">Atualizar</th><th>Ações</th><th>Etiquetas</th></tr></thead>
+        <tbody id="zmon-events-body"><tr><td colspan="12" class="zmon-empty">Carregando incidentes do Zabbix...</td></tr></tbody>
+      </table>
+    </div>
+    <div id="zmon-results-status" class="zmon-results-status" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="zabbix-relatorios-section" class="content-section zabbix-reports-section">
+  <header class="zreports-heading">
+    <h1>Relatórios do Zabbix</h1>
+    <p>Central de informações, logs, auditoria e notificações do sistema.</p>
+  </header>
+  <nav class="zreports-tabs" role="tablist" aria-label="Relatórios do Zabbix">
+    <button type="button" class="zreports-tab active" data-report-tab="system" role="tab" aria-selected="true">Informação do sistema</button>
+    <button type="button" class="zreports-tab" data-report-tab="scheduled" role="tab" aria-selected="false">Relatórios programados</button>
+    <button type="button" class="zreports-tab" data-report-tab="availability" role="tab" aria-selected="false">Relatório de disponibilidade</button>
+    <button type="button" class="zreports-tab" data-report-tab="top-triggers" role="tab" aria-selected="false">100 principais gatilhos</button>
+    <button type="button" class="zreports-tab" data-report-tab="audit" role="tab" aria-selected="false">Log de auditoria</button>
+    <button type="button" class="zreports-tab" data-report-tab="actions" role="tab" aria-selected="false">Log de ações</button>
+    <button type="button" class="zreports-tab" data-report-tab="notifications" role="tab" aria-selected="false">Notificações</button>
+  </nav>
+  <section class="zreports-panel" role="tabpanel">
+    <header class="zreports-panel-header">
+      <h2 id="zreports-panel-title">Informação do sistema (Zabbix)</h2>
+      <div class="zreports-panel-actions">
+        <label class="zreports-period-control" id="zreports-period-control" for="zreports-period" hidden>Período
+          <select id="zreports-period" class="form-input"><option value="24">24 horas</option><option value="168">7 dias</option><option value="720">30 dias</option></select>
+        </label>
+        <button type="button" id="zreports-refresh" class="zreports-button zreports-button-primary"><i class="fa-solid fa-rotate-right"></i> Atualizar Dados</button>
+        <button type="button" id="zreports-export" class="zreports-button"><i class="fa-solid fa-download"></i> Exportar</button>
+      </div>
+    </header>
+    <div id="zreports-content" class="zreports-content" aria-live="polite">
+      <div class="zreports-loading"><i class="fa-solid fa-spinner fa-spin"></i> Consultando a API do Zabbix...</div>
+    </div>
+    <div id="zreports-status" class="zreports-status" aria-live="polite"></div>
+  </section>
+</section>

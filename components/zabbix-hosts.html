@@ -1,0 +1,87 @@
+<section id="zabbix-hosts-section" class="content-section">
+    <div class="section-header zabbix-hosts-heading">
+        <h1><i class="fa-solid fa-server"></i> Gerenciamento de Hosts</h1>
+        <p>Inventário, status e filtragem avançada de servidores</p>
+      </div>
+
+      <div class="zabbix-filter-container">
+          <div class="zabbix-filter-header" id="zbx-filter-toggle">
+              <div class="zabbix-filter-heading-content">
+                  <i class="fa-solid fa-filter"></i>
+                  <span>Filtro</span>
+              </div>
+              <i class="fa-solid fa-chevron-up toggle-arrow" id="zbx-filter-arrow"></i>
+          </div>
+
+          <div class="zabbix-filter-body" id="zbx-filter-body">
+              <form id="zbx-advanced-filter-form">
+                  <div class="filter-grid">
+                      <div class="filter-column">
+                          <div class="filter-row">
+                              <label>Grupos de hosts</label>
+                              <input type="text" id="filter-hostgroup" class="form-input" placeholder="informe aqui o argumento para pesquisa">
+                          </div>
+                          
+                          <div class="filter-row">
+                              <label>Hosts</label>
+                              <input type="text" id="filter-hostname" class="form-input" placeholder="informe aqui o argumento para pesquisa">
+                          </div>
+
+                          <div class="filter-row">
+                              <label>IP / DNS</label>
+                              <input type="text" id="filter-ip" class="form-input" placeholder="Ex: 192.168.0.1">
+                          </div>
+
+                          <div class="filter-row filter-row--top">
+                              <label>Severidade</label>
+                              <div class="checkbox-grid">
+                                  <label><input type="checkbox" name="sev" value="0"> Não classificada</label>
+                                  <label><input type="checkbox" name="sev" value="1"> Informativo</label>
+                                  <label><input type="checkbox" name="sev" value="2"> Aviso</label>
+                                  <label><input type="checkbox" name="sev" value="3"> Médio</label>
+                                  <label><input type="checkbox" name="sev" value="4"> Alto</label>
+                                  <label><input type="checkbox" name="sev" value="5"> Crítico</label>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="filter-column">
+                          <div class="filter-row">
+                              <label>Status do Host</label>
+                              <div class="radio-group-zbx">
+                                  <input type="radio" id="status-any" name="host-status" value="any" checked>
+                                  <label for="status-any">Qualquer</label>
+                                  
+                                  <input type="radio" id="status-monitored" name="host-status" value="0">
+                                  <label for="status-monitored">Monitorado</label>
+                                  
+                                  <input type="radio" id="status-notmonitored" name="host-status" value="1">
+                                  <label for="status-notmonitored">Não monitorado</label>
+                              </div>
+                          </div>
+
+                          <div class="filter-row">
+                              <label>Etiquetas (Tags)</label>
+                              <div class="zabbix-tag-inputs">
+                                  <input type="text" id="filter-tag-name" class="form-input" placeholder="Nome (Ex: Setor)">
+                                  <input type="text" id="filter-tag-value" class="form-input" placeholder="Valor (Ex: REDES)">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="filter-actions">
+                      <button type="submit" class="btn btn-primary">Aplicar</button>
+                      <button type="button" id="btn-zbx-filter-reset" class="btn btn-outline">Limpar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+
+      <div id="zbx-hosts-results">
+          <i class="fa-solid fa-magnifying-glass zabbix-results-empty-icon"></i>
+          <span>Nenhum dado encontrado</span>
+          <span class="zabbix-results-hint">Utilize o filtro acima para buscar os hosts.</span>
+      </div>
+
+    </section>

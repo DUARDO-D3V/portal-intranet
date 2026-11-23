@@ -1,0 +1,6 @@
+Serviço Node.js
+
+1. Copie `.env.example` para `.env`.
+2. Preencha as variáveis de ambiente com valores locais.
+3. Instale as dependências com `npm install`.
+4. Execute com `npm start`.

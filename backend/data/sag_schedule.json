@@ -1,0 +1,15 @@
+[
+  {
+    "date": "2026-01-01",
+    "shifts": [
+      {
+        "name": "Operador exemplo",
+        "phone": "(00) 00000-0000",
+        "class": "operator",
+        "start": "00:00",
+        "end": "23:59"
+      }
+    ],
+    "isShiftChange": false
+  }
+]
