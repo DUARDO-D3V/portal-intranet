@@ -206,6 +206,16 @@ Não faça upload de dados confidenciais em ambientes públicos.
 npm audit
 ```
 
+## Documentos legais e acessibilidade
+
+O projeto inclui páginas públicas com textos básicos para adaptação pela organização:
+
+- [Política de Privacidade](./politica-privacidade.html)
+- [Termos de Uso](./termos-de-uso.html)
+- [Acessibilidade](./acessibilidade.html)
+
+As páginas de política e termos devem ser revisadas pelo responsável jurídico da organização antes de uso em produção.
+
 ## Estrutura
 
 ```text

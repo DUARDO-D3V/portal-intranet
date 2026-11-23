@@ -1,0 +1,22 @@
+<footer class="site-footer" aria-label="Rodapé do portal">
+  <nav class="site-footer-links" aria-label="Links legais e de acessibilidade">
+    <button type="button" class="footer-link" data-legal-dialog="privacidade">Política de privacidade</button>
+    <button type="button" class="footer-link" data-legal-dialog="termos">Termos de uso</button>
+    <button type="button" class="footer-link" data-legal-dialog="cookies">Aviso de cookies</button>
+    <button type="button" class="footer-link" data-legal-dialog="acessibilidade">Acessibilidade</button>
+  </nav>
+  <p class="site-footer-copy">Portal Intranet - Ambiente de operação e monitoramento.</p>
+</footer>
+
+<div class="legal-dialog-backdrop" id="legal-dialog-backdrop" hidden>
+  <section class="legal-dialog" role="dialog" aria-modal="true" aria-labelledby="legal-dialog-title">
+    <button type="button" class="legal-dialog-close" id="legal-dialog-close" aria-label="Fechar aviso">&times;</button>
+    <h2 id="legal-dialog-title"></h2>
+    <div id="legal-dialog-content" class="legal-dialog-content"></div>
+  </section>
+</div>
+
+<aside class="cookie-banner" id="cookie-banner" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Este portal usa somente cookies essenciais para manter seu acesso seguro e suas preferências básicas.</p>
+  <button type="button" class="btn btn-primary" id="cookie-banner-accept">Entendi</button>
+</aside>
